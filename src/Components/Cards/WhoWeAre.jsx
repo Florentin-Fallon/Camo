@@ -52,7 +52,7 @@ const WhoWeAre = () => {
                     </span>
                   )}
                 </Typography>
-                <Typography variant="body2" color="#ffab91">
+                <Typography variant="body2" color="#728996">
                   {member.grade}
                 </Typography>
               </CardContent>

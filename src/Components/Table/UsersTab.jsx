@@ -82,7 +82,8 @@ function UsersTab() {
       <Table>
         <TableHead sx={{ backgroundColor: '#81c784' }}>
           <TableRow>
-            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Prénom - Nom</TableCell>
+            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Prénom</TableCell>
+            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Nom</TableCell>
             <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Téléphone</TableCell>
             <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Email</TableCell>
             <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Réplique</TableCell>
@@ -104,7 +105,7 @@ function UsersTab() {
                     onMouseEnter={(event) => handlePopoverOpen(event, user)}
                     onMouseLeave={handlePopoverClose}
                   >
-                    {user.name}
+                    {user.firstname}
                   </Typography>
                   <Popover
                     id="mouse-over-popover"
@@ -125,6 +126,7 @@ function UsersTab() {
                     <Typography sx={{backgroundColor: user.role === 'Admin' ? "#ff5252" : "#ffa726", color: "#fff", padding: "2px 8px", borderRadius: "12px", fontSize: "0.8rem" }}>{user.role}</Typography>
                   </Popover>
                 </TableCell>
+                <TableCell align="center">{user.lastname}</TableCell>
                 <TableCell align="center">{blurNumber(user.number)}</TableCell>
                 <TableCell align="center">{user.email}</TableCell>
                 <TableCell align="center">{user.replica}</TableCell>

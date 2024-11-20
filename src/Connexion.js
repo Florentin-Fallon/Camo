@@ -43,10 +43,10 @@ function Connexion() {
 
   return (
     <Box
-      sx={{ display: 'flex',alignItems: 'center',justifyContent: 'center',height: '100vh',backgroundImage: 'url("https://cdn.pixabay.com/photo/2018/03/20/03/11/northern-lights-3242090_1280.jpg")'}}>
+      sx={{ display: 'flex',alignItems: 'center',justifyContent: 'center',height: '100vh',backgroundSize: 'cover',backgroundImage: 'url("https://cdn.pixabay.com/photo/2023/10/14/09/20/mountains-8314422_1280.png")'}}>
       <Card sx={{ minWidth: 300, padding: 2, boxShadow: 3 }}>
         <CardContent>
-          <Typography variant="h5" align="center" gutterBottom>
+          <Typography variant="h5" align="center" sx={{fontWeight: 'regular', fontFamily: 'Roboto'}} gutterBottom>
             Connexion
           </Typography>
           <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -76,10 +76,10 @@ function Connexion() {
               />
             </Box>
             <Box sx={{my: 2}}>
-              <Button sx={{mb: 2}} variant="contained" color="success" type="submit" fullWidth>
+              <Button sx={{mb: 2, bgcolor: '#728996'}} variant="contained" type="submit" fullWidth>
                 Se connecter
               </Button>
-              <Button variant="contained" color="success" type="submit" href='/signup' fullWidth>
+              <Button sx={{bgcolor: '#728996'}} variant="contained" color="success" type="submit" href='/signup' fullWidth>
                 S'inscrire
               </Button>
             </Box>

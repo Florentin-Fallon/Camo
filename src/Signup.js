@@ -18,7 +18,8 @@ import PasswordIcon from '@mui/icons-material/Password';
 import GppGoodIcon from '@mui/icons-material/GppGood';
 
 function Signup() {
-  const [name, setName] = useState('');
+  const [firstname, setFirstname] = useState('');
+  const [lastname, setLastname] = useState('');
   const [number, setNumber] = useState('');
   const [email, setEmail] = useState('');
   const [replica, setReplica] = useState('');
@@ -37,7 +38,8 @@ function Signup() {
     }
 
     const newUser = {
-      name,
+      firstname,
+      lastname,
       number,
       email,
       replica,
@@ -50,14 +52,15 @@ function Signup() {
         const usersReponse = await axios.get('http://localhost:5000/users');
         dispatch(setUsers(usersReponse.data));
 
-        setName('');
+        setFirstname('');
+        setLastname('');
         setEmail('');
         setNumber('');
         setReplica('');
         setPassword('');
         setConfirmPassword('');
 
-        alert(`Bienvenue dans le groupe ${name} !`);
+        alert(`Bienvenue dans le groupe ${firstname} ${lastname} !`);
         navigate('/');
       } else {
         throw new Error('Erreur lors de l\'ajout de l\'utilisateur');
@@ -69,8 +72,8 @@ function Signup() {
   };
 
   return (
-    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundImage: 'url("https://cdn.pixabay.com/photo/2018/03/20/03/11/northern-lights-3242090_1280.jpg")' }}>
-      <Card sx={{ minWidth: 300, padding: 2, boxShadow: 3 }}>
+    <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100vh', backgroundSize: 'cover',backgroundImage: 'url("https://cdn.pixabay.com/photo/2023/10/14/09/20/mountains-8314422_1280.png")' }}>
+      <Card sx={{ minWidth: 300, padding: 2, boxShadow: 3, borderRadius: 5 }}>
         <CardContent>
           <Typography variant="h5" component="div" align="center" gutterBottom>
             <img style={{ width: '80px', height: '70px' }} src='https://cdn.pixabay.com/photo/2013/07/12/15/55/laurel-wreath-150577_1280.png' alt='Neversoft' />
@@ -82,10 +85,22 @@ function Signup() {
               <TextField
                 type='text'
                 color='success'
-                label="Prénom - Nom"
+                label="Prénom"
                 variant="standard"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
+                value={firstname}
+                onChange={(e) => setFirstname(e.target.value)}
+                required
+              />
+            </Box>
+            <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'center' }}>
+              <AccountCircle sx={{ mr: 1, my: 0.5, color: '#4caf50' }} />
+              <TextField
+                type='text'
+                color='success'
+                label="Nom"
+                variant="standard"
+                value={lastname}
+                onChange={(e) => setLastname(e.target.value)}
                 required
               />
             </Box>
@@ -156,10 +171,10 @@ function Signup() {
               />
             </Box>
             <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: 2, gap: 1.5 }}>
-              <Button variant='contained' color='success' type='submit'>
+              <Button variant='contained' sx={{bgcolor: '#728996'}} type='submit'>
                 Soumettre
               </Button>
-              <Button variant='contained' color='success' href='/connexion'>
+              <Button variant='contained' sx={{bgcolor: '#728996'}} href='/connexion'>
                 Retour
               </Button>
             </Box>

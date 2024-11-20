@@ -10,7 +10,7 @@ function Footer() {
                 flexDirection: 'column',
                 alignItems: 'center',
                 padding: 2,
-                mt: 'auto',
+                backgroundColor: 'white',
             }}
         >
             <Typography variant="body2">

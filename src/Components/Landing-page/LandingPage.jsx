@@ -10,10 +10,10 @@ function LandingPage() {
         alignItems: 'center',
         justifyContent: 'center',
         minHeight: '100vh',
-        backgroundImage: 'url("https://cdn.pixabay.com/photo/2019/11/27/04/59/nature-4656054_1280.jpg")',
+        backgroundImage: 'url("https://cdn.pixabay.com/photo/2023/10/14/09/20/mountains-8314422_1280.png")',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        color: 'white',
+        backgroundPosition: 'top',
+        color: 'black',
         textAlign: 'center',
         px: 2,
       }}

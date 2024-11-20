@@ -16,9 +16,10 @@ function Header() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      setIsAuthenticated(true);
-      const decodedToken = jwtDecode(token);
-      setUserName(decodedToken.name);
+        setIsAuthenticated(true);
+        const decodedToken = jwtDecode(token);
+        const fullName = `${decodedToken.firstname} ${decodedToken.lastname}`;
+        setUserName(fullName);
     }
   }, []);
 
@@ -41,19 +42,19 @@ function Header() {
   return (
     <Box sx={{ display: 'flex', alignItems: 'center', padding: 1, backgroundColor: '#fff', justifyContent: isAuthenticated ? 'space-between' : 'flex-end', boxShadow: 1 }}>
       <Box sx={{ display: 'flex', justifyContent: 'center', flexGrow: 1, gap: 3 }}>
-        <Typography color='primary' sx={{ '&:hover': { color: '#f57c00' } }}>
+        <Typography color='primary' sx={{ '&:hover': { color: '#728996' } }}>
           <Link to="/" style={{ textDecoration: 'none', color: 'inherit' }}>Accueil</Link>
         </Typography>
-        <Typography color='primary' sx={{ '&:hover': { color: '#f57c00' } }}>
+        <Typography color='primary' sx={{ '&:hover': { color: '#728996' } }}>
           <Link to="/membres" style={{ textDecoration: 'none', color: 'inherit' }}>Membres</Link>
         </Typography>
-        <Typography color='primary' sx={{ '&:hover': { color: '#f57c00' } }}>
+        <Typography color='primary' sx={{ '&:hover': { color: '#728996' } }}>
           <Link to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link>
         </Typography>
       </Box>
       {isAuthenticated ? (
         <IconButton color="primary" onClick={handleMenuOpen} size="large" sx={{ marginLeft: 'auto' }}>
-          <AccountCircleIcon fontSize='large' sx={{ '&:hover': { color: '#f57c00' } }} />
+          <AccountCircleIcon fontSize='large' sx={{ '&:hover': { color: '#728996' } }} />
         </IconButton>
       ) : (
         <Box sx={{ width: 56, height: 56, marginLeft: 'auto' }}/>
