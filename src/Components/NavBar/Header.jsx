@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import SettingsIcon from '@mui/icons-material/Settings';
 import { jwtDecode } from 'jwt-decode'; 
 
 function Header() {
@@ -70,6 +71,16 @@ function Header() {
             {userName ? userName : 'Chargement...'}
           </Typography>
         </MenuItem>
+            <Divider sx={{ marginY: 1 }} />
+            <MenuItem component={Link} to="/profil" 
+              sx={{
+                display: 'flex', alignItems: 'center', gap: 1,
+                '&:hover': { bgcolor: 'action.hover' },
+              }}
+            >
+              <SettingsIcon fontSize="small" sx={{ color: '#728996' }} />
+              <Typography variant="body2" color="textPrimary">Profil</Typography>
+            </MenuItem>
         <Divider sx={{ marginY: 1 }} />
         <MenuItem component={Link} to="/contact" 
           sx={{
@@ -77,7 +88,7 @@ function Header() {
             '&:hover': { bgcolor: 'action.hover' },
           }}
         >
-          <QuestionMarkIcon fontSize="small" sx={{ color: '#4caf50' }} />
+          <QuestionMarkIcon fontSize="small" sx={{ color: '#728996' }} />
           <Typography variant="body2" color="textPrimary">Aide</Typography>
         </MenuItem>
         <Divider sx={{ marginY: 1 }} />

@@ -1,4 +1,4 @@
-import { Button, Typography, Snackbar, Alert } from '@mui/material';
+import { Typography, Snackbar, Alert } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import React, { useCallback, useEffect, useState } from 'react';
 import Table from '@mui/material/Table';
@@ -8,10 +8,9 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import Paper from '@mui/material/Paper';
-import { setUsers, deleteUser } from '../../Reducer/UserReducer';
+import { setUsers} from '../../Reducer/UserReducer';
 import Box from '@mui/material/Box';
 import axios from 'axios';
-import DeleteIcon from '@mui/icons-material/Delete';
 import Popover from '@mui/material/Popover';
 
 function UsersTab() {
@@ -36,11 +35,16 @@ function UsersTab() {
   const fetchUsers = useCallback(async () => {
     try {
       const response = await axios.get('http://localhost:5000/users');
-      const normalizedUsers = response.data.map((user) => ({
-        ...user,
-        id: user._id,
-      }));
-      dispatch(setUsers(normalizedUsers));
+      if (Array.isArray(response.data)) {
+        const normalizedUsers = response.data.map((user) => ({
+          ...user,
+          id: user._id,
+        }));
+        dispatch(setUsers(normalizedUsers));
+      } else {
+        console.error('La réponse de l\'API n\'est pas un tableau:', response.data);
+        setSnackbar({ open: true, message: 'Erreur: la réponse API n\'est pas un tableau.', severity: 'error' });
+      }
     } catch (error) {
       console.error('Erreur lors de la récupération des utilisateurs :', error);
       setSnackbar({ open: true, message: 'Erreur lors de la récupération des utilisateurs.', severity: 'error' });
@@ -53,25 +57,8 @@ function UsersTab() {
     }
   }, [dispatch, fetchUsers, users.length]);
 
-  const handleDelete = async (id) => {
-    if (window.confirm('Êtes-vous sûr de vouloir supprimer cet utilisateur ?')) {
-      try {
-        const response = await axios.delete(`http://localhost:5000/delete/${id}`);
-        if (response.status === 200) {
-          dispatch(deleteUser(id));
-          setSnackbar({ open: true, message: 'Utilisateur supprimé avec succès.', severity: 'success' });
-        } else {
-          throw new Error('Erreur lors de la suppression de l\'utilisateur');
-        }
-      } catch (error) {
-        console.error('Erreur lors de la suppression de l\'utilisateur:', error);
-        setSnackbar({ open: true, message: 'Erreur lors de la suppression de l\'utilisateur.', severity: 'error' });
-      }
-    }
-  };
-
   const blurNumber = (number) => {
-    const blurredNumber = number.replace(/\d(?=\d{4})/g, '*');
+    const blurredNumber = number.slice(0,4) + '*'.repeat(number.length-4);
     return blurredNumber;
   };
 
@@ -87,7 +74,6 @@ function UsersTab() {
             <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Téléphone</TableCell>
             <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Email</TableCell>
             <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Réplique</TableCell>
-            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Action</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -130,11 +116,6 @@ function UsersTab() {
                 <TableCell align="center">{blurNumber(user.number)}</TableCell>
                 <TableCell align="center">{user.email}</TableCell>
                 <TableCell align="center">{user.replica}</TableCell>
-                <TableCell align="center">
-                  <Button onClick={() => handleDelete(user._id)}>
-                    <DeleteIcon color='error' />
-                  </Button>
-                </TableCell>
               </TableRow>
             ))
           )}
