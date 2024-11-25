@@ -55,13 +55,13 @@ function UsersTab() {
     if (users.length === 0) {
       fetchUsers();
     }
-  }, [dispatch, fetchUsers, users.length]);
+  }, [dispatch, fetchUsers, users.length, users]);
 
   const blurNumber = (number) => {
     const blurredNumber = number.slice(0,4) + '*'.repeat(number.length-4);
     return blurredNumber;
   };
-
+  console.log('Contenu final de users dans Redux:', users);
   return (
     <TableContainer sx={{ my: 5, boxShadow: 3 }} component={Paper}>
       <Typography variant="h5">Les Membres</Typography>
@@ -77,49 +77,51 @@ function UsersTab() {
           </TableRow>
         </TableHead>
         <TableBody>
-          {users.length === 0 ? (
-            <TableRow>
-              <TableCell colSpan={5} align="center">Aucun utilisateur trouvé.</TableCell>
-            </TableRow>
-          ) : (
-            users.map((user) => (
-              <TableRow key={user._id}>
-                <TableCell align="center" sx={{ textTransform: 'capitalize' }}>
-                  <Typography
-                    aria-owns={open ? 'mouse-over-popover' : undefined}
-                    aria-haspopup="true"
-                    onMouseEnter={(event) => handlePopoverOpen(event, user)}
-                    onMouseLeave={handlePopoverClose}
-                  >
-                    {user.firstname}
-                  </Typography>
-                  <Popover
-                    id="mouse-over-popover"
-                    sx={{ pointerEvents: 'none'}}
-                    open={open && hoveredUser?._id === user._id}
-                    anchorEl={anchorEl}
-                    anchorOrigin={{
-                      vertical: 'bottom',
-                      horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                      vertical: 'top',
-                      horizontal: 'center',
-                    }}
-                    onClose={handlePopoverClose}
-                    disableRestoreFocus
-                  >
-                    <Typography sx={{backgroundColor: user.role === 'Admin' ? "#ff5252" : "#ffa726", color: "#fff", padding: "2px 8px", borderRadius: "12px", fontSize: "0.8rem" }}>{user.role}</Typography>
-                  </Popover>
-                </TableCell>
-                <TableCell align="center">{user.lastname}</TableCell>
-                <TableCell align="center">{blurNumber(user.number)}</TableCell>
-                <TableCell align="center">{user.email}</TableCell>
-                <TableCell align="center">{user.replica}</TableCell>
-              </TableRow>
-            ))
-          )}
-        </TableBody>
+  {Array.isArray(users) && users.length === 0 ? (
+    <TableRow>
+      <TableCell colSpan={5} align="center">Aucun utilisateur trouvé.</TableCell>
+    </TableRow>
+  ) : (
+    Array.isArray(users) && users.map((user) => (
+      <TableRow key={user._id}>
+        <TableCell align="center" sx={{ textTransform: 'capitalize' }}>
+          <Typography
+            aria-owns={open ? 'mouse-over-popover' : undefined}
+            aria-haspopup="true"
+            onMouseEnter={(event) => handlePopoverOpen(event, user)}
+            onMouseLeave={handlePopoverClose}
+          >
+            {user.firstname}
+          </Typography>
+          <Popover
+            id="mouse-over-popover"
+            sx={{ pointerEvents: 'none' }}
+            open={open && hoveredUser?._id === user._id}
+            anchorEl={anchorEl}
+            anchorOrigin={{
+              vertical: 'bottom',
+              horizontal: 'center',
+            }}
+            transformOrigin={{
+              vertical: 'top',
+              horizontal: 'center',
+            }}
+            onClose={handlePopoverClose}
+            disableRestoreFocus
+          >
+            <Typography sx={{ backgroundColor: user.role === 'Admin' ? "#ff5252" : "#ffa726", color: "#fff", padding: "2px 8px", borderRadius: "12px", fontSize: "0.8rem" }}>
+              {user.role}
+            </Typography>
+          </Popover>
+        </TableCell>
+        <TableCell align="center">{user.lastname}</TableCell>
+        <TableCell align="center">{blurNumber(user.number)}</TableCell>
+        <TableCell align="center">{user.email}</TableCell>
+        <TableCell align="center">{user.replica}</TableCell>
+      </TableRow>
+    ))
+  )}
+</TableBody>
       </Table>
       <Snackbar
         open={snackbar.open}

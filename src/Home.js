@@ -4,6 +4,7 @@ import MediaCard from './Components/Cards/MediaCard'
 import Header from './Components/NavBar/Header'
 import Footer from './Components/NavBar/Footer'
 import InfosCard from './Components/Cards/InfosCard'
+import PartnerCarousel from './Components/Carousel/PartnerCarousel'
 
 function Home() {
   return (
@@ -38,6 +39,9 @@ function Home() {
             link="https://air-soft.gun-evasion.com/blog/definition-airsoft-10-points/"
           />
         </div>
+      </div>
+      <div>
+        <PartnerCarousel />
       </div>
       <div>
         <Footer />

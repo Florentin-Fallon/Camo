@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { Link } from 'react-router-dom';
 
-function MediCard({
+function MediaCard({
   title,
   paragraph, 
   imgsrc,
@@ -28,4 +28,4 @@ function MediCard({
   )
 }
 
-export default MediCard
+export default MediaCard

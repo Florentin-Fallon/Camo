@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, TextField, Typography, FormControl, InputLabel, MenuItem, Select, Snackbar, Alert } from '@mui/material';
 import { useDispatch } from 'react-redux';
-import { setUsers } from './Reducer/UserReducer';
+import { setUsers} from './Reducer/UserReducer';
 import Header from './Components/NavBar/Header';
 
 function Profil() {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
 
   const [userData, setUserData] = useState({
@@ -83,12 +83,12 @@ function Profil() {
   };
 
   return (
-    <Box sx={{ backgroundColor: '#f5f5f5', minHeight: '100vh' }}>
+    <Box sx={{backgroundImage: 'url("https://cdn.pixabay.com/photo/2014/03/22/17/00/the-background-292720_1280.png")',backgroundSize: 'cover',minHeight: '100vh' }}>
       <Header />
-      <Typography sx={{ mt: 4, mb: 1, textAlign: 'center' }} variant="h4" color="primary">
+      <Typography sx={{ mt: 4, mb: 1, textAlign: 'center',color: 'white' }} variant="h4" color="primary">
         Bienvenue {userData.firstname && userData.lastname ? `${userData.firstname} ${userData.lastname}` : 'Chargement...'} !
       </Typography>
-      <Typography sx={{ textAlign: 'center', color: '#555', mb: 2}} variant="body2">
+      <Typography sx={{ textAlign: 'center', color: 'white', mb: 2}} variant="body2">
         Tu retrouveras ici tes informations personnelles.
       </Typography>
       <Box
@@ -108,7 +108,8 @@ function Profil() {
           margin: '0 auto',
         }}
       >
-        <Box sx={{ display: 'flex', gap: 2, width: '100%' }}>
+        {/* Formulaire pour afficher les informations */}
+        <Box sx={{ display: 'flex', gap: 2, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
           <TextField
             fullWidth
             type="text"
@@ -163,20 +164,19 @@ function Profil() {
             <MenuItem value="Distance">Distance</MenuItem>
           </Select>
         </FormControl>
-        <Button
-          variant="contained"
-          sx={{
-            my: 2,
-            bgcolor: '#728996',
-            color: '#fff',
-            '&:hover': {
-              bgcolor: '#5f6d7d',
-            },
-          }}
-          onClick={handleSave}
-        >
-          Sauvegarder
-        </Button>
+        <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center',gap: 2}}>
+          <Button
+            variant="contained"
+            sx={{my: 2, bgcolor: '#728996',color: '#fff',
+              '&:hover': {
+                bgcolor: '#5f6d7d',
+              },
+            }}
+            onClick={handleSave}
+          >
+            Sauvegarder
+          </Button>
+        </Box>
       </Box>
 
       <Snackbar

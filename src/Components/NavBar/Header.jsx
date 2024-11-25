@@ -50,6 +50,9 @@ function Header() {
           <Link to="/membres" style={{ textDecoration: 'none', color: 'inherit' }}>Membres</Link>
         </Typography>
         <Typography color='primary' sx={{ '&:hover': { color: '#728996' } }}>
+          <Link to="/boutique" style={{ textDecoration: 'none', color: 'inherit' }}>Boutique</Link>
+        </Typography>
+        <Typography color='primary' sx={{ '&:hover': { color: '#728996' } }}>
           <Link to="/contact" style={{ textDecoration: 'none', color: 'inherit' }}>Contact</Link>
         </Typography>
       </Box>
