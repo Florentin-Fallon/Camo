@@ -11,23 +11,19 @@ import Paper from '@mui/material/Paper';
 import { setUsers} from '../../Reducer/UserReducer';
 import Box from '@mui/material/Box';
 import axios from 'axios';
-import Popover from '@mui/material/Popover';
 
 function UsersTab() {
   const users = useSelector((state) => state.users);
   const dispatch = useDispatch();
   const [snackbar, setSnackbar] = useState({ open: false, message: '', severity: 'success' });
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [hoveredUser, setHoveredUser] = useState(null);
 
   const handlePopoverOpen = (event, user) => {
     setAnchorEl(event.currentTarget);
-    setHoveredUser(user)
   };
 
   const handlePopoverClose = () => {
     setAnchorEl(null);
-    setHoveredUser(null)
   };
 
   const open = Boolean(anchorEl);
@@ -61,19 +57,19 @@ function UsersTab() {
     const blurredNumber = number.slice(0,4) + '*'.repeat(number.length-4);
     return blurredNumber;
   };
-  console.log('Contenu final de users dans Redux:', users);
   return (
-    <TableContainer sx={{ my: 5, boxShadow: 3 }} component={Paper}>
-      <Typography variant="h5">Les Membres</Typography>
+    <TableContainer sx={{ boxShadow: 3 }} component={Paper}>
+      <Typography variant="h5">Nos Membres</Typography>
       <Box sx={{ my: 3 }}></Box>
       <Table>
-        <TableHead sx={{ backgroundColor: '#81c784' }}>
+        <TableHead sx={{ backgroundColor: '#728996' }}>
           <TableRow>
-            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Prénom</TableCell>
-            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Nom</TableCell>
-            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Téléphone</TableCell>
-            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Email</TableCell>
-            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold' }}>Réplique</TableCell>
+          <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold',letterSpacing: 0.5 }}>Rôle</TableCell>
+            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold',letterSpacing: 0.5 }}>Prénom</TableCell>
+            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold',letterSpacing: 0.5 }}>Nom</TableCell>
+            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold',letterSpacing: 0.5 }}>Téléphone</TableCell>
+            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold',letterSpacing: 0.5 }}>Email</TableCell>
+            <TableCell align="center" sx={{ color: '#fff', fontWeight: 'bold',letterSpacing: 0.5 }}>Réplique</TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -84,35 +80,11 @@ function UsersTab() {
   ) : (
     Array.isArray(users) && users.map((user) => (
       <TableRow key={user._id}>
+        <TableCell align="center"><span style={{backgroundColor: user.role === "Admin" ? "#e53935" : user.role === "Swifteur" ? "#ffa726" : user.role === "Vice-Président" ? "#0d47a1" : "#e0e0e0",color: 'white', padding: 4, borderRadius: 5, fontSize: "0.6rem",}}>{user.role}</span></TableCell>
         <TableCell align="center" sx={{ textTransform: 'capitalize' }}>
-          <Typography
-            aria-owns={open ? 'mouse-over-popover' : undefined}
-            aria-haspopup="true"
-            onMouseEnter={(event) => handlePopoverOpen(event, user)}
-            onMouseLeave={handlePopoverClose}
-          >
+          <Typography aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true" onMouseEnter={(event) => handlePopoverOpen(event, user)} onMouseLeave={handlePopoverClose}>
             {user.firstname}
           </Typography>
-          <Popover
-            id="mouse-over-popover"
-            sx={{ pointerEvents: 'none' }}
-            open={open && hoveredUser?._id === user._id}
-            anchorEl={anchorEl}
-            anchorOrigin={{
-              vertical: 'bottom',
-              horizontal: 'center',
-            }}
-            transformOrigin={{
-              vertical: 'top',
-              horizontal: 'center',
-            }}
-            onClose={handlePopoverClose}
-            disableRestoreFocus
-          >
-            <Typography sx={{ backgroundColor: user.role === 'Admin' ? "#ff5252" : "#ffa726", color: "#fff", padding: "2px 8px", borderRadius: "12px", fontSize: "0.8rem" }}>
-              {user.role}
-            </Typography>
-          </Popover>
         </TableCell>
         <TableCell align="center">{user.lastname}</TableCell>
         <TableCell align="center">{blurNumber(user.number)}</TableCell>

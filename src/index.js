@@ -23,21 +23,21 @@ const defaultTheme = createTheme({
       main: '#f44336',
       contrastText: '#fff'
     },
-
   },
   components: {
     MuiButton: {
       styleOverrides: {
         root: {
           textTransform: 'capitalize',
-          borderRadius: 5
+          borderRadius: 5,
+          backgroundColor: '#728996'
         }
       }
     },
     MuiTypography: {
       styleOverrides: {
         root: {
-          textAlign: 'center'
+          textAlign: 'center',
         }
       }
     },

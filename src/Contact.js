@@ -38,9 +38,9 @@ function Contact() {
   };
 
   return (
-    <div style={{ minHeight: '100vh', backgroundImage: 'url("https://cdn.pixabay.com/photo/2024/07/19/08/16/waves-8905720_1280.png")',backgroundSize: 'cover', }}>
+    <div style={{ minHeight: '100vh', backgroundImage: 'url("https://images.unsplash.com/photo-1731934916254-2680412f8881?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',backgroundSize: 'cover',backgroundPosition: 'center', }}>
       <Header />
-      <Container maxWidth="sm" sx={{ paddingY: 5, bgcolor: 'white', borderRadius: 5, boxShadow: 2, my: 8 }}>
+      <Container maxWidth="xs" sx={{ paddingY: 5, bgcolor: 'white', borderRadius: 5, boxShadow: 2, my: 8 }}>
         <Typography variant="h4" align="center" gutterBottom sx={{my: 2}} >
           Contactez-nous
         </Typography>

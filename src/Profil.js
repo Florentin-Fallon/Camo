@@ -83,32 +83,35 @@ function Profil() {
   };
 
   return (
-    <Box sx={{backgroundImage: 'url("https://cdn.pixabay.com/photo/2014/03/22/17/00/the-background-292720_1280.png")',backgroundSize: 'cover',minHeight: '100vh' }}>
+    <Box sx={{backgroundImage: 'url("https://images.unsplash.com/photo-1602673221577-0b56d7ce446b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',backgroundSize: 'cover',minHeight: '100vh' }}>
       <Header />
-      <Typography sx={{ mt: 4, mb: 1, textAlign: 'center',color: 'white' }} variant="h4" color="primary">
+      <Typography sx={{ mt: 5, mb: 1, textAlign: 'center',color: 'white' }} variant="h4" color="primary">
         Bienvenue {userData.firstname && userData.lastname ? `${userData.firstname} ${userData.lastname}` : 'Chargement...'} !
       </Typography>
       <Typography sx={{ textAlign: 'center', color: 'white', mb: 2}} variant="body2">
         Tu retrouveras ici tes informations personnelles.
       </Typography>
-      <Box
-        sx={{
-          boxShadow: 3,
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          flexDirection: 'column',
-          gap: 3,
-          my: 4,
-          p: 5,
-          borderRadius: 5,
-          backgroundColor: '#fff',
-          width: '100%',
-          maxWidth: '600px',
-          margin: '0 auto',
-        }}
-      >
-        {/* Formulaire pour afficher les informations */}
+      <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1, margin: '-10px 0', mt: 5.5}}>
+        <Box>
+          <img width={500} src='https://www.pngarts.com/files/8/Call-of-Duty-Gun-PNG-Background-Image.png' alt='Personnage fictif' />
+        </Box>
+        <Box
+          sx={{
+            boxShadow: 3,
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'column',
+            gap: 2,
+            my: 4,
+            p: 5,
+            borderRadius: 5,
+            backgroundColor: '#fff',
+            width: '100%',
+            maxWidth: '600px',
+            margin: '0 auto',
+          }}
+        >
         <Box sx={{ display: 'flex', gap: 2, width: '100%', justifyContent: 'center', alignItems: 'center' }}>
           <TextField
             fullWidth
@@ -177,6 +180,7 @@ function Profil() {
             Sauvegarder
           </Button>
         </Box>
+      </Box>
       </Box>
 
       <Snackbar

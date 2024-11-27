@@ -42,8 +42,7 @@ function Connexion() {
   };
 
   return (
-    <Box
-      sx={{ display: 'flex',alignItems: 'center',justifyContent: 'center',height: '100vh',backgroundSize: 'cover',backgroundImage: 'url("https://cdn.pixabay.com/photo/2023/10/14/09/20/mountains-8314422_1280.png")'}}>
+    <Box sx={{ display: 'flex',alignItems: 'center',justifyContent: 'center',height: '100vh',backgroundSize: 'cover',backgroundImage: 'url("https://images.unsplash.com/photo-1666873584465-7639d1c9e1f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")'}}>
       <Card sx={{ minWidth: 300, padding: 2, boxShadow: 3 }}>
         <CardContent>
           <Typography variant="h5" align="center" sx={{fontWeight: 'regular', fontFamily: 'Roboto'}} gutterBottom>

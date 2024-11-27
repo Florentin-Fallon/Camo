@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { Box, Card, CardActions, CardContent, CardMedia, Typography, Button } from '@mui/material';
+import { Box, Card,CardContent, CardMedia, Typography} from '@mui/material';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { Link } from 'react-router-dom';
 
 function PartnerCarousel() {
   const [partners, setPartners] = useState([]);
@@ -73,9 +72,6 @@ function PartnerCarousel() {
                     {partner.description}
                   </Typography>
                 </CardContent>
-                <CardActions sx={{display: 'flex', justifyContent: 'center'}}>
-                  <Button variant='contained'><Link to={partner.link} style={{ textDecoration: 'none', color: 'inherit' }}>Voir +</Link></Button>
-                </CardActions>
               </Card>
             </Box>
           ))

@@ -5,6 +5,7 @@ function InfosCard({
     imgsrc,
     title,
     paragraph,
+    link
 }) {
   return (
     <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mt: 5 }}>
@@ -41,7 +42,7 @@ function InfosCard({
             {paragraph}
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Button sx={{ mt: 2, width: 200, bgcolor: '#728996' }} variant="contained" href="/contact">
+            <Button sx={{ mt: 2, width: 200, bgcolor: '#728996' }} variant="contained" href={link}>
               Rejoignez-nous !
             </Button>
           </Box>

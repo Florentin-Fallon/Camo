@@ -1,4 +1,5 @@
 import { Box, Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import AddIcon from '@mui/icons-material/Add';
 import React, { useEffect, useState } from 'react';
 import Header from './Components/NavBar/Header';
 import Footer from './Components/NavBar/Footer';
@@ -28,9 +29,12 @@ function Boutique() {
   return (
     <div>
       <Header />
-      <Box sx={{ backgroundColor: '#728996', p: 2, color: 'white' }}>
-        <Typography sx={{ mb: 1 }}>Code promo : <strong>SWIFT17</strong></Typography>
+      <Box sx={{ backgroundColor: '#728996', p: 2, color: 'white', boxShadow: 2 }}>
         <Typography sx={{ fontSize: 22 }}> -20% chez nos partenaires</Typography>
+        <Typography sx={{ fontSize: 12 }}>Code promo : <strong>SWIFT17</strong></Typography>
+      </Box>
+      <Box sx={{ display: 'flex', justifyContent: 'left',ml: 2, mt:3}}>
+        <Button variant='contained' href='/addpartenaires'>Ajouter un partenaire<AddIcon sx={{ml: 1}} fontSize='small'/></Button>
       </Box>
 
       {categories.map((category) => {
@@ -38,7 +42,7 @@ function Boutique() {
 
         return (
           <div key={category}>
-            <Typography variant='h5' sx={{ my: 4 }}>{category}</Typography>
+            <Typography variant='h5' sx={{  fontWeight: 700 }}>{category}</Typography>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 3 }}>
               {categoryPartners.length > 0 ? (
@@ -56,7 +60,7 @@ function Boutique() {
                         <Typography variant="body2" color="text.secondary">{partner.description}</Typography>
                       </CardContent>
                       <CardActions sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 1 }}>
-                        <Button variant="contained" size="small">
+                        <Button variant="contained" sx={{bgcolor: '#728996'}} size="small">
                           <a href={partner.link} style={{ textDecoration: 'none', color: 'inherit' }}>Y aller</a>
                         </Button>
                       </CardActions>
