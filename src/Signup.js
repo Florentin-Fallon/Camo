@@ -47,9 +47,9 @@ function Signup() {
     };
 
     try {
-      const response = await axios.post('https://club-neversoft.vercel.app/signup', newUser);
+      const response = await axios.post('http://localhost:5000/signup', newUser);
       if (response.status === 201) {
-        const usersReponse = await axios.get('https://club-neversoft.vercel.app/users');
+        const usersReponse = await axios.get('http://localhost:5000/users');
         dispatch(setUsers(usersReponse.data));
 
         setFirstname('');

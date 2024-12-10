@@ -16,7 +16,7 @@ function Calendrier() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('https://club-neversoft.vercel.app/api/event');
+        const response = await axios.get('http://localhost:5000/api/event');
         setEvents(response.data)
       } catch (error) {
         console.error('Erreur lors de la récupération des événements :', error);

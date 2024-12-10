@@ -22,7 +22,7 @@ function Connexion() {
     event.preventDefault();
 
     try {
-      const response = await axios.post('https://club-neversoft.vercel.app/connexion', { email, password });
+      const response = await axios.post('http://localhost:5000/connexion', { email, password });
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);
         
