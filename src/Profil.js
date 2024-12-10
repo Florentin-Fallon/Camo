@@ -19,7 +19,7 @@ function Profil() {
   useEffect(() => {
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:5000/user', {
+      fetch('https://neversoft-back.onrender.com/user', {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${token}`,
@@ -57,7 +57,7 @@ function Profil() {
   const handleSave = () => {
     const token = localStorage.getItem('token');
     if (token) {
-      fetch('http://localhost:5000/user/update', {
+      fetch('https://neversoft-back.onrender.com/user/update', {
         method: 'PUT',
         headers: {
           Authorization: `Bearer ${token}`,

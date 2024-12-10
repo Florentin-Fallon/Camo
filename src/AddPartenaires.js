@@ -22,10 +22,10 @@ function AddPartenaires() {
         const newPartners = { name, description, link, category,imgSrc: picture };
 
         try {
-            const response = await axios.post('http://localhost:5000/api/partenaires', newPartners);
+            const response = await axios.post('https://neversoft-back.onrender.com/partenaires', newPartners);
 
             if (response.status === 201) {
-                const partnersResponse = await axios.get('http://localhost:5000/api/partenaires');
+                const partnersResponse = await axios.get('https://neversoft-back.onrender.com/partenaires');
                 dispatch(setUsers(partnersResponse.data));
 
                 setName('');

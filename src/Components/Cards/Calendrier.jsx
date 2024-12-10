@@ -16,7 +16,7 @@ function Calendrier() {
   useEffect(() => {
     const fetchEvents = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/event');
+        const response = await axios.get('https://neversoft-back.onrender.com/event');
         setEvents(response.data)
       } catch (error) {
         console.error('Erreur lors de la récupération des événements :', error);
@@ -30,14 +30,14 @@ function Calendrier() {
     event.preventDefault();
     try {
       const newEvent = { name, date, timeD, timeF };
-      const response = await axios.post('http://localhost:5000/api/event', newEvent);
+      const response = await axios.post('https://neversoft-back.onrender.com/event', newEvent);
       setEvents([...events, response.data])
       setName('');
       setTimeD('');
       setTimeF('');
       setSnackbar({open: true, message: `Nouveau événement '${name}' !`, severity: 'success'})
 
-      const updatedEvents = await axios.get('http://localhost:5000/api/event')
+      const updatedEvents = await axios.get('https://neversoft-back.onrender.com/event')
       setEvents(updatedEvents.data)
     } catch (error) {
       setSnackbar({ 
@@ -62,7 +62,7 @@ function Calendrier() {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/event/${id}`);
+      await axios.delete(`https://neversoft-back.onrender.com/event/${id}`);
       setEvents((prevEvents) => prevEvents.filter((event) => event._id !== id));
       setSnackbar({
         open: true,

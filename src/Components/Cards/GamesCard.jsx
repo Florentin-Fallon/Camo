@@ -33,7 +33,7 @@ function GamesCard() {
   useEffect(() => {
     const fetchGames = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/gamesmode');
+        const response = await fetch('https://neversoft-back.onrender.com/gamesmode');
         if (!response.ok) {
           throw new Error('Réponse non valide de l\'API');
         }

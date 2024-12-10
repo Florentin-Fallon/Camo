@@ -30,7 +30,7 @@ function UsersTab() {
 
   const fetchUsers = useCallback(async () => {
     try {
-      const response = await axios.get('http://localhost:5000/users');
+      const response = await axios.get('https://neversoft-back.onrender.com/users');
       if (Array.isArray(response.data)) {
         const normalizedUsers = response.data.map((user) => ({
           ...user,

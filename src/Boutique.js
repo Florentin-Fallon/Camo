@@ -10,7 +10,7 @@ function Boutique() {
   useEffect(() => {
     const fetchPartners = async () => {
       try {
-        const response = await fetch('http://localhost:5000/api/partenaires');
+        const response = await fetch('https://neversoft-back.onrender.com/partenaires');
         if (!response.ok) {
           throw new Error('Réponse non valide de l\'API');
         }
