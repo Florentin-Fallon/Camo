@@ -30,7 +30,8 @@ const defaultTheme = createTheme({
         root: {
           textTransform: 'capitalize',
           borderRadius: 5,
-          backgroundColor: '#728996'
+          backgroundColor: '#728996',
+          color: 'white'
         }
       }
     },

@@ -9,6 +9,7 @@ import Connexion from "./Connexion";
 import Profil from "./Profil";
 import Boutique from "./Boutique";
 import AddPartenaires from "./AddPartenaires";
+import Evenement from "./Evenement";
 
 function App() {
   const token = localStorage.getItem('token');
@@ -23,6 +24,7 @@ function App() {
         <Route path="/profil" element={token ? <Profil /> : <Navigate to="/connexion" replace />} />
         <Route path="/boutique" element={token ? <Boutique /> : <Navigate to="/connexion" replace />} />
         <Route path="/addpartenaires" element={token ? <AddPartenaires /> : <Navigate to="/connexion" replace />} />
+        <Route path="/evenement" element={token ? <Evenement /> : <Navigate to="/connexion" replace />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/connexion" element={<Connexion />} />
         <Route path="*" element={<Navigate to="/connexion" replace />} />

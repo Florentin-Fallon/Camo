@@ -91,10 +91,7 @@ function Profil() {
       <Typography sx={{ textAlign: 'center', color: 'white', mb: 2}} variant="body2">
         Tu retrouveras ici tes informations personnelles.
       </Typography>
-      <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1, margin: '-10px 0', mt: 5.5}}>
-        <Box>
-          <img width={500} src='https://www.pngarts.com/files/8/Call-of-Duty-Gun-PNG-Background-Image.png' alt='Personnage fictif' />
-        </Box>
+      <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
         <Box
           sx={{
             boxShadow: 3,

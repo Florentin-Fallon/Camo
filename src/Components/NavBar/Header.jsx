@@ -4,6 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
 import QuestionMarkIcon from '@mui/icons-material/QuestionMark';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import SettingsIcon from '@mui/icons-material/Settings';
 import { jwtDecode } from 'jwt-decode'; 
 
@@ -84,6 +85,16 @@ function Header() {
               <SettingsIcon fontSize="small" sx={{ color: '#728996' }} />
               <Typography variant="body2" color="textPrimary">Profil</Typography>
             </MenuItem>
+        <Divider sx={{ marginY: 1 }} />
+        <MenuItem component={Link} to="/evenement" 
+          sx={{
+            display: 'flex', alignItems: 'center', gap: 1,
+            '&:hover': { bgcolor: 'action.hover' },
+          }}
+        >
+          <CalendarMonthIcon fontSize="small" sx={{ color: '#728996' }} />
+          <Typography variant="body2" color="textPrimary">Événements</Typography>
+        </MenuItem>
         <Divider sx={{ marginY: 1 }} />
         <MenuItem component={Link} to="/contact" 
           sx={{

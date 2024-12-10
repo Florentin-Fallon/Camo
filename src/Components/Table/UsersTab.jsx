@@ -80,7 +80,7 @@ function UsersTab() {
   ) : (
     Array.isArray(users) && users.map((user) => (
       <TableRow key={user._id}>
-        <TableCell align="center"><span style={{backgroundColor: user.role === "Admin" ? "#e53935" : user.role === "Swifteur" ? "#ffa726" : user.role === "Vice-Président" ? "#0d47a1" : "#e0e0e0",color: 'white', padding: 4, borderRadius: 5, fontSize: "0.6rem",}}>{user.role}</span></TableCell>
+        <TableCell align="center"><span style={{backgroundColor: user.role === "Admin" ? "#e53935" : user.role === "Swifteur" ? "#ffa726" : user.role === "Vice-Président" ? "#0d47a1" : user.role === "Trésoriere" ? "#f06292" : "#e0e0e0",color: 'white', padding: 4, borderRadius: 5, fontSize: "0.6rem",}}>{user.role}</span></TableCell>
         <TableCell align="center" sx={{ textTransform: 'capitalize' }}>
           <Typography aria-owns={open ? 'mouse-over-popover' : undefined} aria-haspopup="true" onMouseEnter={(event) => handlePopoverOpen(event, user)} onMouseLeave={handlePopoverClose}>
             {user.firstname}
