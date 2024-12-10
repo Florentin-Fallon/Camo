@@ -88,7 +88,7 @@ function UsersTab() {
         </TableCell>
         <TableCell align="center">{user.lastname}</TableCell>
         <TableCell align="center">{blurNumber(user.number)}</TableCell>
-        <TableCell align="center">{user.email}</TableCell>
+        <TableCell align="center">{blurNumber(user.email)}</TableCell>
         <TableCell align="center">{user.replica}</TableCell>
       </TableRow>
     ))
