@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import Slider from 'react-slick';
-import { Box, Card,CardContent, CardMedia, Typography} from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -22,6 +22,7 @@ function PartnerCarousel() {
 
     fetchPartners();
   }, []);
+
   const settings = {
     dots: true,
     infinite: true,
@@ -48,8 +49,8 @@ function PartnerCarousel() {
   };
 
   return (
-    <Box sx={{mx: 4, mb: 15 }}>
-      <Typography variant="h4" sx={{ mb: 10, textAlign: 'center' }}>
+    <Box sx={{ mx: 4, mb: 10 }}>
+      <Typography variant="h4" sx={{ mb: 5, textAlign: 'center', fontSize: { xs: '1.5rem', sm: '2rem', md: '2rem' } }}>
         Nos Partenaires
       </Typography>
 
@@ -57,12 +58,12 @@ function PartnerCarousel() {
         {partners.length > 0 ? (
           partners.map((partner) => (
             <Box key={partner._id} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Card sx={{ width: 300, boxShadow: 3, borderRadius: 2 }}>
+              <Card sx={{ width: { xs: 210, sm: 280, md: 310 }, boxShadow: 3, borderRadius: 2, mx: 2 }}>
                 <CardMedia
                   component="img"
                   alt={partner.name}
                   image={partner.imgSrc || "https://via.placeholder.com/150"}
-                  sx={{ height: 180, objectFit: 'cover' }}
+                  sx={{ height: 180, objectFit: 'cover', borderTopLeftRadius: 2,borderTopRightRadius: 2 }}
                 />
                 <CardContent>
                   <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
