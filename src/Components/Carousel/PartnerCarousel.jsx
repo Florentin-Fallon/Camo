@@ -58,7 +58,7 @@ function PartnerCarousel() {
         {partners.length > 0 ? (
           partners.map((partner) => (
             <Box key={partner._id} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Card sx={{ width: { xs: 210, sm: 280, md: 310 }, boxShadow: 3, borderRadius: 2, mx: 2 }}>
+              <Card sx={{ width: { xs: 190, sm: 280, md: 310 }, boxShadow: 3, borderRadius: 2, mx: 2, mb: 2 }}>
                 <CardMedia
                   component="img"
                   alt={partner.name}

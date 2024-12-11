@@ -42,7 +42,7 @@ function Boutique() {
 
         return (
           <div key={category}>
-            <Typography variant='h5' sx={{  fontWeight: 700 }}>{category}</Typography>
+            <Typography variant='h5' sx={{ fontWeight: 700, mt: {xs: 2, md: 2} }}>{category}</Typography>
 
             <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 3 }}>
               {categoryPartners.length > 0 ? (

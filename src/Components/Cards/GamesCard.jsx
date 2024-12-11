@@ -8,10 +8,10 @@ const style = {
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 500,
+  width: { xs: '80%', sm: '80%', md: 500 },
   bgcolor: 'background.paper',
   boxShadow: 24,
-  p: 4,
+  p: { xs: 3, md: 5 },
   borderRadius: 5
 };
 
@@ -88,10 +88,10 @@ function GamesCard() {
       >
         <Box sx={style}>
         <FontAwesomeIcon icon={faSkull} size='2x' style={{cursor: 'pointer', }} onMouseEnter={(e) => e.target.style.color = 'red'} onClick={handleClose}/>
-          <Typography id="game-modal-title" variant="h5" component="h2" sx={{fontWeight: 700, textTransform: 'capitalize',fontFamily: 'Protest Revolution', letterSpacing: 2}}>
+          <Typography id="game-modal-title" variant="h5" component="h2" sx={{fontWeight: 700, textTransform: 'capitalize',fontFamily: 'Protest Revolution', letterSpacing: 2,fontSize: { xs: '1rem', sm: '1.5rem', md: '1.5rem' }}}>
             {selectedGame?.name}
           </Typography>
-          <Typography id="game-modal-description" sx={{ my: 3, textAlign: 'center', letterSpacing: 1 }} variant='body1' color='text.secondary'>
+          <Typography id="game-modal-description" sx={{ my: 3, textAlign: 'center', letterSpacing: 1,fontSize: { xs: '0.8rem', sm: '1rem', md: '1rem' } }} variant='body1' color='text.secondary'>
             {selectedGame?.description}
           </Typography>
         </Box>

@@ -42,14 +42,49 @@ function Connexion() {
   };
 
   return (
-    <Box sx={{ display: 'flex',alignItems: 'center',justifyContent: 'center',height: '100vh',backgroundSize: 'cover',backgroundImage: 'url("https://images.unsplash.com/photo-1666873584465-7639d1c9e1f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")'}}>
-      <Card sx={{ minWidth: 300, padding: 2, boxShadow: 3 }}>
+    <Box
+      sx={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        height: '100vh',
+        backgroundSize: 'cover',
+        backgroundImage:
+          'url("https://images.unsplash.com/photo-1666873584465-7639d1c9e1f5?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',
+      }}
+    >
+      <Card
+        sx={{
+          maxWidth: { xs: 250, sm: 300 },
+          minWidth: { xs: 250, sm: 300 },
+          padding: 3,
+          boxShadow: 3,
+          borderRadius: 5
+        }}
+      >
         <CardContent>
-          <Typography variant="h5" align="center" sx={{fontWeight: 'regular', fontFamily: 'Roboto'}} gutterBottom>
+          <Typography
+            variant="h5"
+            align="center"
+            sx={{ fontWeight: 'regular', fontFamily: 'Roboto' }}
+            gutterBottom
+          >
             Connexion
           </Typography>
-          <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'center', mb: 2, py: 1.5 }}>
+          <form
+            onSubmit={handleLogin}
+            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
+          >
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+                mb: 2,
+                py: 1.5,
+                width: '100%',
+              }}
+            >
               <AlternateEmailIcon sx={{ mr: 1, my: 0.5, color: '#4caf50' }} />
               <TextField
                 label="Email"
@@ -61,8 +96,16 @@ function Connexion() {
                 required
               />
             </Box>
-            <Box sx={{ display: 'flex', alignItems: 'flex-end', justifyContent: 'center', mb: 2 }}>
-              <PasswordIcon sx={{ mr: 1, my: 0.5, color: '#4caf50' }}/>
+            <Box
+              sx={{
+                display: 'flex',
+                alignItems: 'flex-end',
+                justifyContent: 'center',
+                mb: 2,
+                width: '100%',
+              }}
+            >
+              <PasswordIcon sx={{ mr: 1, my: 0.5, color: '#4caf50' }} />
               <TextField
                 label="Mot de passe"
                 variant="standard"
@@ -74,11 +117,28 @@ function Connexion() {
                 required
               />
             </Box>
-            <Box sx={{my: 2}}>
-              <Button sx={{mb: 2, bgcolor: '#728996'}} variant="contained" type="submit" fullWidth>
+            <Box sx={{ my: 2, width: '100%' }}>
+              <Button
+                sx={{
+                  mb: 2,
+                  bgcolor: '#728996',
+                  '&:hover': { bgcolor: '#607080' },
+                  width: '100%',
+                }}
+                variant="contained"
+                type="submit"
+              >
                 Se connecter
               </Button>
-              <Button sx={{bgcolor: '#728996'}} variant="contained" color="success" type="submit" href='/signup' fullWidth>
+              <Button
+                sx={{
+                  bgcolor: '#4caf50',
+                  '&:hover': { bgcolor: '#388e3c' },
+                  width: '100%',
+                }}
+                variant="contained"
+                href="/signup"
+              >
                 S'inscrire
               </Button>
             </Box>
@@ -91,9 +151,9 @@ function Connexion() {
         onClose={() => setSnackbar({ ...snackbar, open: false })}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Alert 
-          onClose={() => setSnackbar({ ...snackbar, open: false })} 
-          severity={snackbar.severity} 
+        <Alert
+          onClose={() => setSnackbar({ ...snackbar, open: false })}
+          severity={snackbar.severity}
           sx={{ width: '100%' }}
         >
           {snackbar.message}

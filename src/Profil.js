@@ -85,10 +85,10 @@ function Profil() {
   return (
     <Box sx={{backgroundImage: 'url("https://images.unsplash.com/photo-1602673221577-0b56d7ce446b?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',backgroundSize: 'cover',minHeight: '100vh' }}>
       <Header />
-      <Typography sx={{ mt: 5, mb: 1, textAlign: 'center',color: 'white' }} variant="h4" color="primary">
+      <Typography sx={{ mt: 5, mb: 1, textAlign: 'center',color: 'white', fontSize: { xs: '1.5rem', sm: '2.2rem', md: '2.2rem' } }} variant="h4" color="primary">
         Bienvenue {userData.firstname && userData.lastname ? `${userData.firstname} ${userData.lastname}` : 'Chargement...'} !
       </Typography>
-      <Typography sx={{ textAlign: 'center', color: 'white', mb: 2}} variant="body2">
+      <Typography sx={{ textAlign: 'center', color: 'white', mb: 4,fontSize: { xs: '0.8rem', sm: '1rem', md: '1rem' }}} variant="body2">
         Tu retrouveras ici tes informations personnelles.
       </Typography>
       <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
@@ -104,7 +104,7 @@ function Profil() {
             p: 5,
             borderRadius: 5,
             backgroundColor: '#fff',
-            width: '100%',
+            width: {xs: 290,sm: 600, md: 600},
             maxWidth: '600px',
             margin: '0 auto',
           }}

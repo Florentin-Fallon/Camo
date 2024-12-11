@@ -1,6 +1,5 @@
 import React from 'react';
-import InfosCard from './InfosCard';
-import { Card, CardContent, CardMedia, Typography, Grid, Divider } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 
 const members = [
   { id: 1, photo: 'https://cdn.pixabay.com/photo/2019/11/26/07/12/veterans-day-4653833_1280.jpg', grade: 'Président', nom: 'Fallon', prenom: 'Florentin', role: 'Admin'},
@@ -14,25 +13,13 @@ const members = [
 const WhoWeAre = () => {
   return (
     <div>
-      <InfosCard
-        imgsrc={"https://images.unsplash.com/photo-1661339051419-177098a33d12?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"}
-        title="L'association Neversoft"
-        paragraph="C'est fondé en février 2024, notre club est avant tout un groupe d’amis unis par la passion de l’airsoft. 
-        Nous réunissons des joueurs de tous horizons et de tous âges, partageant ensemble notre enthousiasme pour ce sport. Nous sommes située en charente maritime."
-        link='/contact'
-      />
-      <Divider sx={{m: 5}}/>
-      <Typography variant="h4" gutterBottom align="center" mt={6} mb={6}>
-        Notre équipe
-      </Typography>
-      
       <Grid container spacing={4} justifyContent="center">
         {members.map((member) => (
           <Grid item key={member.id} xs={12} md={4}>
             <Card sx={{transition: "transform 0.3s, box-shadow 0.3s","&:hover": {transform: "scale(1.03)",boxShadow: "0 8px 16px rgba(0, 0, 0, 0.15)"}}}>
               <CardMedia
                 component="img"
-                height="150"
+                sx={{height: { xs: 150, md: 150, lg: 150 },}}
                 image={member.photo}
                 alt={`${member.prenom} ${member.nom}`}
               />

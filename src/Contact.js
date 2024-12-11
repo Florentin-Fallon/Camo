@@ -40,8 +40,8 @@ function Contact() {
   return (
     <div style={{ minHeight: '100vh', backgroundImage: 'url("https://images.unsplash.com/photo-1731934916254-2680412f8881?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D")',backgroundSize: 'cover',backgroundPosition: 'center', }}>
       <Header />
-      <Container maxWidth="xs" sx={{ paddingY: 5, bgcolor: 'white', borderRadius: 5, boxShadow: 2, my: 8 }}>
-        <Typography variant="h4" align="center" gutterBottom sx={{my: 2}} >
+      <Container sx={{ paddingY: 2, bgcolor: 'white', borderRadius: 5, boxShadow: 2, my: 8, width: {xs: 300} }}>
+        <Typography variant="h4" align="center" gutterBottom sx={{my: 2, fontSize: {xs: '1.5rem'}}} >
           Contactez-nous
         </Typography>
         <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
