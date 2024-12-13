@@ -1,8 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, Card, CardActions, CardContent, Divider, FormControl, InputLabel, MenuItem, Select, TextField, Typography } from '@mui/material';
+import {
+  Box,
+  Button,
+  Card,
+  CardActions,
+  CardContent,
+  Divider,
+  FormControl,
+  InputLabel,
+  MenuItem,
+  Select,
+  TextField,
+  Typography,
+  Snackbar,
+  Alert,
+} from '@mui/material';
 import axios from 'axios';
-import Snackbar from '@mui/material/Snackbar';
-import Alert from '@mui/material/Alert';
 import DeleteIcon from '@mui/icons-material/Delete';
 
 function Calendrier() {
@@ -17,7 +30,7 @@ function Calendrier() {
     const fetchEvents = async () => {
       try {
         const response = await axios.get('https://neversoft-back.onrender.com/event');
-        setEvents(response.data)
+        setEvents(response.data);
       } catch (error) {
         console.error('Erreur lors de la récupération des événements :', error);
       }
@@ -30,22 +43,21 @@ function Calendrier() {
     event.preventDefault();
     try {
       const newEvent = { name, date, timeD, timeF };
-      const response = await axios.post('https://neversoft-back.onrender.com/event', newEvent);
-      setEvents([...events, response.data])
+      await axios.post('https://neversoft-back.onrender.com/event', newEvent);
       setName('');
       setTimeD('');
       setTimeF('');
-      setSnackbar({open: true, message: `Nouveau événement '${name}' !`, severity: 'success'})
+      setSnackbar({ open: true, message: `Nouveau événement '${name}' !`, severity: 'success' });
 
-      const updatedEvents = await axios.get('https://neversoft-back.onrender.com/event')
-      setEvents(updatedEvents.data)
+      const updatedEvents = await axios.get('https://neversoft-back.onrender.com/event');
+      setEvents(updatedEvents.data);
     } catch (error) {
-      setSnackbar({ 
-        open: true, 
-        message: error.response?.data?.message || 'Erreur lors de l\'ajout de l\'événement', 
-        severity: 'error' 
-      })
-      console.error('Erreur lors de l\'ajout de l\'événement :', error);
+      setSnackbar({
+        open: true,
+        message: error.response?.data?.message || "Erreur lors de l'ajout de l'événement",
+        severity: 'error',
+      });
+      console.error("Erreur lors de l'ajout de l'événement :", error);
     }
   };
 
@@ -53,12 +65,10 @@ function Calendrier() {
     if (!dateString || isNaN(new Date(dateString).getTime())) {
       return 'Date invalide';
     }
-    const options = {weekday: 'short', day: 'numeric', month: 'short'}
-    const date = new Date(dateString)
-    return new Intl.DateTimeFormat('fr-FR', options).format(date)
-  }
-
-  const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
+    const options = { weekday: 'short', day: 'numeric', month: 'short' };
+    const date = new Date(dateString);
+    return new Intl.DateTimeFormat('fr-FR', options).format(date);
+  };
 
   const handleDelete = async (id) => {
     try {
@@ -72,34 +82,45 @@ function Calendrier() {
     } catch (error) {
       setSnackbar({
         open: true,
-        message: error.response?.data?.message || 'Erreur lors de la suppression de l\'événement',
+        message: error.response?.data?.message || "Erreur lors de la suppression de l'événement",
         severity: 'error',
       });
-      console.error('Erreur lors de la suppression de l\'événement :', error);
+      console.error("Erreur lors de la suppression de l'événement :", error);
     }
   };
 
+  const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
+
   return (
-    <Box sx={{background: 'url("https://images.unsplash.com/photo-1501244686579-97d04b498199?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D") no-repeat center center/cover', backgroundColor: '#f0f0f0', minHeight: '89.2vh'}}>
-      <Typography variant="h5" sx={{ pt: 4,color: 'white' }}>
+    <Box
+      sx={{
+        background: 'url("https://images.unsplash.com/photo-1501244686579-97d04b498199?q=80&w=2070&auto=format&fit=crop") no-repeat center center/cover',
+        backgroundColor: '#f0f0f0',
+        minHeight: '89.2vh',
+        p: 2,
+      }}
+    >
+      <Typography variant="h5" sx={{ pt: 4, color: 'white', textAlign: 'center' }}>
         Vous retrouverez ici nos événements !
       </Typography>
+
       <Box
         sx={{
           display: 'flex',
+          flexDirection: { xs: 'column', md: 'row' },
           justifyContent: 'center',
           alignItems: 'center',
-          gap: 10,
+          gap: { xs: 2, md: 10 },
           my: 5,
           boxShadow: 5,
           borderRadius: 5,
-          mx: 35,
-          py: 2,
-          bgcolor:'white'
+          p: 2,
+          mx: { xs: 2, md: 10 },
+          bgcolor: 'white',
         }}
       >
-        <form onSubmit={handleSubmit}>
-          <Box sx={{ display: 'flex', my: 5, gap: 2, flexDirection: 'column' }}>
+        <form onSubmit={handleSubmit} style={{ width: '100%', maxWidth: '400px' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
             <TextField
               type="date"
               variant="outlined"
@@ -108,8 +129,13 @@ function Calendrier() {
               onChange={(e) => setDate(e.target.value)}
             />
             <FormControl>
-              <InputLabel color='success'>Type</InputLabel>
-              <Select variant='outlined' color="success" value={name} onChange={(e) => setName(e.target.value)}>
+              <InputLabel color="success">Type</InputLabel>
+              <Select
+                variant="outlined"
+                color="success"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+              >
                 <MenuItem value="Aucune">Aucune</MenuItem>
                 <MenuItem value="Entrainement">Entrainement</MenuItem>
                 <MenuItem value="Match">Match</MenuItem>
@@ -131,26 +157,38 @@ function Calendrier() {
               value={timeF}
               onChange={(e) => setTimeF(e.target.value)}
             />
-            <Button sx={{mt: 1}} type="submit">
+            <Button sx={{ mt: 1 }} type="submit">
               Ajouter
             </Button>
           </Box>
         </form>
-        <Divider orientation="vertical" flexItem />
-        <Box sx={{mt: 2, p: 2, gap: 2, display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', alignItems: 'center', maxHeight: '400px', overflowY: 'auto',
-          scrollbarWidth: 'thin',
-          '&::-webkit-scrollbar': {
-            width: '8px',
-          },
-          '&::-webkit-scrollbar-thumb': {
-            backgroundColor: '#888',
-            borderRadius: '4px',
-          },
-          '&::-webkit-scrollbar-thumb:hover': {
-            backgroundColor: '#728996',
-          },
-        }}>
-          <Typography variant="h6" sx={{ mb: 0.5, gridColumn: 'span 2' }}>
+
+        <Divider orientation={"vertical"} flexItem sx={{ display: { xs: 'none', md: 'block' } }} />
+
+        <Box
+          sx={{
+            mt: 2,
+            p: 2,
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+            gap: 2,
+            alignItems: 'center',
+            maxHeight: '400px',
+            overflowY: 'auto',
+            scrollbarWidth: 'thin',
+            '&::-webkit-scrollbar': {
+              width: '8px',
+            },
+            '&::-webkit-scrollbar-thumb': {
+              backgroundColor: '#888',
+              borderRadius: '4px',
+            },
+            '&::-webkit-scrollbar-thumb:hover': {
+              backgroundColor: '#728996',
+            },
+          }}
+        >
+          <Typography variant="h6" sx={{ mb: 0.5, gridColumn: 'span 2', textAlign: 'center' }}>
             Événements
           </Typography>
           {sortedEvents.length > 0 ? (
@@ -158,41 +196,44 @@ function Calendrier() {
               <Card key={index} sx={{ p: 2, bgcolor: '#b0bec5', color: 'white' }}>
                 <CardContent>
                   <Typography sx={{ color: 'text.secondary', fontSize: 12 }} variant="body2">
-                  {formatDate(event.date || new Date().toISOString().split('T')[0])}
+                    {formatDate(event.date || new Date().toISOString().split('T')[0])}
                   </Typography>
-                  <Typography gutterBottom variant="h6" >
+                  <Typography gutterBottom variant="h6">
                     {event.name}
                   </Typography>
-                  <Typography variant="body2" >
+                  <Typography variant="body2">
                     {event.timeD} - {event.timeF}
                   </Typography>
                 </CardContent>
-                <CardActions sx={{display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
-                  <Button sx={{bgcolor: '#b0bec5'}} onClick={() => handleDelete(event._id)}><DeleteIcon sx={{'&:hover': {color: '#ff1744'}}}/></Button>
+                <CardActions sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                  <Button sx={{ bgcolor: '#b0bec5' }} onClick={() => handleDelete(event._id)}>
+                    <DeleteIcon sx={{ '&:hover': { color: '#ff1744' } }} />
+                  </Button>
                 </CardActions>
               </Card>
             ))
           ) : (
             <Box>
-              <Typography >Aucun événement pour le moment.</Typography>
+              <Typography>Aucun événement pour le moment.</Typography>
             </Box>
           )}
         </Box>
-        <Snackbar
+      </Box>
+
+      <Snackbar
         open={snackbar.open}
         autoHideDuration={3000}
         onClose={() => setSnackbar({ ...snackbar, open: false })}
         anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
       >
-        <Alert 
-          onClose={() => setSnackbar({ ...snackbar, open: false })} 
-          severity={snackbar.severity} 
+        <Alert
+          onClose={() => setSnackbar({ ...snackbar, open: false })}
+          severity={snackbar.severity}
           sx={{ width: '100%' }}
         >
           {snackbar.message}
         </Alert>
       </Snackbar>
-        </Box>
     </Box>
   );
 }
