@@ -114,9 +114,10 @@ function Calendrier() {
           my: 5,
           boxShadow: 5,
           borderRadius: 5,
-          p: 2,
-          mx: { xs: 2, md: 10 },
+          mx: { md: 10 },
           bgcolor: 'white',
+          py: {xs: 4, md: 5},
+          p: 2
         }}
       >
         <form onSubmit={handleSubmit} style={{ width: '100%', maxWidth: '400px' }}>
@@ -168,12 +169,12 @@ function Calendrier() {
         <Box
           sx={{
             mt: 2,
-            p: 2,
-            display: 'grid',
-            gridTemplateColumns: { xs: '1fr', sm: 'repeat(2, 1fr)' },
+            p: 4,
+            display: 'flex',
+            flexDirection: 'column',
             gap: 2,
-            alignItems: 'center',
             maxHeight: '400px',
+            width: {xs: 250, sm: 500, md: 400},
             overflowY: 'auto',
             scrollbarWidth: 'thin',
             '&::-webkit-scrollbar': {
@@ -188,12 +189,12 @@ function Calendrier() {
             },
           }}
         >
-          <Typography variant="h6" sx={{ mb: 0.5, gridColumn: 'span 2', textAlign: 'center' }}>
+          <Typography variant="h6" sx={{ mb: 0.5, gridColumn: 'span 2', textAlign: 'center',fontSize: { xs: '1.5rem', sm: '1.5rem', md: '1.5rem' } }}>
             Événements
           </Typography>
           {sortedEvents.length > 0 ? (
             sortedEvents.map((event, index) => (
-              <Card key={index} sx={{ p: 2, bgcolor: '#b0bec5', color: 'white' }}>
+              <Card key={index} sx={{ bgcolor: '#b0bec5', color: 'white' }}>
                 <CardContent>
                   <Typography sx={{ color: 'text.secondary', fontSize: 12 }} variant="body2">
                     {formatDate(event.date || new Date().toISOString().split('T')[0])}
