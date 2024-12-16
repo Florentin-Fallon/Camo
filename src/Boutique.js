@@ -42,10 +42,7 @@ function Boutique() {
       <Box
         sx={{ backgroundColor: "#728996", p: 4, color: "white", boxShadow: 2 }}
       >
-        <Typography sx={{ fontSize: 22 }}>
-          {" "}
-          -20% chez nos partenaires
-        </Typography>
+        <Typography sx={{ fontSize: 22 }}>-20% chez nos partenaires</Typography>
         <Typography sx={{ fontSize: 12 }}>
           Code promo : <strong>SWIFT17</strong>
         </Typography>
