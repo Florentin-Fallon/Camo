@@ -110,11 +110,11 @@ function Calendrier() {
   );
 
   const eventColors = {
-    Entrainement: "#4caf50", // Vert
-    Match: "#ff9800", // Rouge
-    Tournoi: "#9c27b0", // Jaune
-    Réunion: "#f21832", // Bleu
-    Aucune: "#b0bec5", // Gris
+    Entrainement: "#4caf50",
+    Match: "#ff9800",
+    Tournoi: "#9c27b0",
+    Réunion: "#f21832",
+    Aucune: "#b0bec5",
   };
 
   return (

@@ -1,6 +1,6 @@
-import React, { useEffect, useState } from 'react';
-import Slider from 'react-slick';
-import { Box, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import React, { useEffect, useState } from "react";
+import Slider from "react-slick";
+import { Box, Card, CardContent, CardMedia, Typography } from "@mui/material";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -9,14 +9,16 @@ function PartnerCarousel() {
   useEffect(() => {
     const fetchPartners = async () => {
       try {
-        const response = await fetch('https://neversoft-back.onrender.com/partenaires');
+        const response = await fetch(
+          "https://neversoft-back.onrender.com/partenaires"
+        );
         if (!response.ok) {
-          throw new Error('Réponse non valide de l\'API');
+          throw new Error("Réponse non valide de l'API");
         }
         const data = await response.json();
         setPartners(data);
       } catch (error) {
-        console.error('Erreur lors de la récupération des partenaires', error);
+        console.error("Erreur lors de la récupération des partenaires", error);
       }
     };
 
@@ -50,23 +52,53 @@ function PartnerCarousel() {
 
   return (
     <Box sx={{ mx: 4, mb: 10 }}>
-      <Typography variant="h4" sx={{ mb: 5, textAlign: 'center', fontSize: { xs: '1.5rem', sm: '2rem', md: '2rem' } }}>
+      <Typography
+        variant="h4"
+        sx={{
+          mb: 5,
+          textAlign: "center",
+          fontSize: { xs: "1.5rem", sm: "2rem", md: "2rem" },
+        }}
+      >
         Nos Partenaires
       </Typography>
 
       <Slider {...settings}>
         {partners.length > 0 ? (
           partners.map((partner) => (
-            <Box key={partner._id} sx={{ display: 'flex', justifyContent: 'center' }}>
-              <Card sx={{ width: { xs: 190, sm: 280, md: 310 }, boxShadow: 3, borderRadius: 2, mx: 2, mb: 2 }}>
+            <Box
+              key={partner._id}
+              sx={{ display: "flex", justifyContent: "center" }}
+            >
+              <Card
+                sx={{
+                  width: { xs: 190, sm: 280, md: 310 },
+                  boxShadow: 3,
+                  borderRadius: 2,
+                  mx: 2,
+                  mb: 2,
+                }}
+              >
                 <CardMedia
                   component="img"
                   alt={partner.name}
                   image={partner.imgSrc || "https://via.placeholder.com/150"}
-                  sx={{ height: 180, objectFit: 'cover', borderTopLeftRadius: 2,borderTopRightRadius: 2 }}
+                  sx={{
+                    height: 180,
+                    objectFit: "cover",
+                    borderTopLeftRadius: 2,
+                    borderTopRightRadius: 2,
+                  }}
                 />
                 <CardContent>
-                  <Typography variant="h6" sx={{ fontWeight: 'bold' }}>
+                  <Typography
+                    variant="body2"
+                    color="text.secondary"
+                    sx={{ fontSize: "0.6rem", fontWeight: "bold" }}
+                  >
+                    {partner.category || "Catégorie non spécifiée"}
+                  </Typography>
+                  <Typography variant="h6" sx={{ fontWeight: "bold" }}>
                     {partner.name}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
@@ -77,7 +109,7 @@ function PartnerCarousel() {
             </Box>
           ))
         ) : (
-          <Typography variant="h6" sx={{ textAlign: 'center' }}>
+          <Typography variant="h6" sx={{ textAlign: "center" }}>
             Aucun partenaire disponible pour le moment.
           </Typography>
         )}
