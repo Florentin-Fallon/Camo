@@ -34,7 +34,7 @@ function Boutique() {
         <Typography sx={{ fontSize: 12 }}>Code promo : <strong>SWIFT17</strong></Typography>
       </Box>
       <Box sx={{ display: 'flex', justifyContent: 'left',ml: 2, mt:3}}>
-        <Button variant='contained' href='/addpartenaires'>Ajouter un partenaire<AddIcon sx={{ml: 1}} fontSize='small'/></Button>
+        <Button variant='contained' sx={{'&:hover': {bgcolor: '#617480'}}} href='/addpartenaires'>Ajouter un partenaire<AddIcon sx={{ml: 1}} fontSize='small'/></Button>
       </Box>
 
       {categories.map((category) => {
@@ -60,7 +60,7 @@ function Boutique() {
                         <Typography variant="body2" color="text.secondary">{partner.description}</Typography>
                       </CardContent>
                       <CardActions sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', mb: 1 }}>
-                        <Button variant="contained" sx={{bgcolor: '#728996'}} size="small">
+                        <Button variant="contained" sx={{bgcolor: '#728996','&:hover': {bgcolor: '#5f6d7d'}}} size="small">
                           <a href={partner.link} style={{ textDecoration: 'none', color: 'inherit' }}>Y aller</a>
                         </Button>
                       </CardActions>

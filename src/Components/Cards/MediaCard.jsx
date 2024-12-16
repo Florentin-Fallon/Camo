@@ -22,7 +22,7 @@ function MediaCard({
                 <Typography variant="body2" sx={{ color: 'text.secondary',textOverflow: 'ellipsis' }}>{paragraph}</Typography>
             </CardContent>
             <CardActions sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: 2, gap: 1.5 }}>
-                <Button variant='contained' sx={{bgcolor: '#728996'}} size="small"><Link style={{ textDecoration: 'none', color: 'inherit' }} to={link}>{textBtn}</Link></Button>
+                <Button variant='contained' sx={{bgcolor: '#728996','&:hover': {bgcolor: '#5f6d7d'}}} size="small"><Link style={{ textDecoration: 'none', color: 'inherit' }} to={link}>{textBtn}</Link></Button>
             </CardActions>
     </Card>
   )

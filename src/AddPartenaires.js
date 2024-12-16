@@ -144,10 +144,10 @@ function AddPartenaires() {
                             />
                         </Box>
                         <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center',my: 2, gap: 1.5,width: '100%',}} >
-                            <Button variant="contained" sx={{ bgcolor: '#728996', flex: 1 }} type="submit">
+                            <Button variant="contained" sx={{ bgcolor: '#728996', flex: 1,'&:hover': {bgcolor: '#5f6d7d'} }} type="submit">
                                 Soumettre
                             </Button>
-                            <Button variant="contained" sx={{ bgcolor: '#728996', flex: 1 }} href="/boutique">
+                            <Button variant="contained" sx={{ bgcolor: '#728996', flex: 1,'&:hover': {bgcolor: '#5f6d7d'} }} href="/boutique">
                                 Retour
                             </Button>
                         </Box>

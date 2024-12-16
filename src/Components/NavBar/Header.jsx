@@ -76,6 +76,7 @@ function Header() {
               display: { xs: 'none', md: 'flex' },
               color: 'inherit',
               textDecoration: 'none',
+              '&:hover': {color: '#728996'}
             }}
           >
             Neversoft
@@ -102,7 +103,8 @@ function Header() {
                   color: 'inherit',
                   textDecoration: 'none',
                   alignItems: 'center',
-                  p: 1.5
+                  p: 1.5,
+                  '&:hover': {color: '#728996'}
                 }}
               >
                 Neversoft
@@ -133,14 +135,14 @@ function Header() {
             </Menu>
           </Box>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' }, justifyContent: 'center', gap: 3 }}>
-            <Typography component={Link} to="/" sx={{ color: 'inherit', textDecoration: 'none' }}>Accueil</Typography>
-            <Typography component={Link} to="/membres" sx={{ color: 'inherit', textDecoration: 'none' }}>Membres</Typography>
-            <Typography component={Link} to="/boutique" sx={{ color: 'inherit', textDecoration: 'none' }}>Boutique</Typography>
-            <Typography component={Link} to="/contact" sx={{ color: 'inherit', textDecoration: 'none' }}>Contact</Typography>
+            <Typography component={Link} to="/" sx={{ color: 'inherit', textDecoration: 'none','&:hover': {color: '#728996'} }}>Accueil</Typography>
+            <Typography component={Link} to="/membres" sx={{ color: 'inherit', textDecoration: 'none','&:hover': {color: '#728996'} }}>Membres</Typography>
+            <Typography component={Link} to="/boutique" sx={{ color: 'inherit', textDecoration: 'none','&:hover': {color: '#728996'} }}>Boutique</Typography>
+            <Typography component={Link} to="/contact" sx={{ color: 'inherit', textDecoration: 'none','&:hover': {color: '#728996'} }}>Contact</Typography>
           </Box>
           {isAuthenticated && (
             <Box sx={{ flexGrow: 0 }}>
-              <Tooltip title="Open settings">
+              <Tooltip title="Paramètre">
                 <IconButton color="primary" onClick={handleOpenUserMenu} sx={{ pr: 1 }}>
                   <AccountCircleIcon sx={{ '&:hover': { color: '#728996' } }} fontSize="large" />
                 </IconButton>

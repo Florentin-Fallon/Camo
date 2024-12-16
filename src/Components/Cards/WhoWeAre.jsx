@@ -16,7 +16,7 @@ const WhoWeAre = () => {
       <Grid container spacing={4} justifyContent="center">
         {members.map((member) => (
           <Grid item key={member.id} xs={12} md={4}>
-            <Card sx={{transition: "transform 0.3s, box-shadow 0.3s","&:hover": {transform: "scale(1.03)",boxShadow: "0 8px 16px rgba(0, 0, 0, 0.15)"}}}>
+            <Card sx={{transition: "transform 0.3s, box-shadow 0.5s","&:hover": {transform: "scale(1.03)",boxShadow: "0 8px 16px rgba(99, 97, 97, 0.15)"}}}>
               <CardMedia
                 component="img"
                 sx={{height: { xs: 150, md: 150, lg: 150 },}}

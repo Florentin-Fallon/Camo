@@ -167,13 +167,7 @@ function Profil() {
         <Box sx={{display: 'flex', justifyContent: 'center', alignItems: 'center',gap: 2}}>
           <Button
             variant="contained"
-            sx={{my: 2, bgcolor: '#728996',color: '#fff',
-              '&:hover': {
-                bgcolor: '#5f6d7d',
-              },
-            }}
-            onClick={handleSave}
-          >
+            sx={{my: 2, bgcolor: '#728996',color: '#fff','&:hover': {bgcolor: '#5f6d7d'}}} onClick={handleSave}>
             Sauvegarder
           </Button>
         </Box>

@@ -44,7 +44,7 @@ function InfosCard({
             {paragraph}
           </Typography>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-            <Button sx={{ mt: 2, width: 200, bgcolor: '#728996', mb: { xs: '2%', sm: '2%', md: '1%' } }} variant="contained">
+            <Button sx={{ mt: 2, width: 200, bgcolor: '#728996', mb: { xs: '2%', sm: '2%', md: '1%'},'&:hover': {bgcolor: '#5f6d7d'} }} variant="contained">
               <Link to="/contact" style={{textDecoration: 'none', color: 'inherit'}}>
                 Rejoignez-nous !
               </Link>

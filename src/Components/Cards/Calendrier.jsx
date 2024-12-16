@@ -91,6 +91,14 @@ function Calendrier() {
 
   const sortedEvents = [...events].sort((a, b) => new Date(a.date) - new Date(b.date));
 
+  const eventColors ={
+    "Entrainement": "#4caf50", // Vert
+    "Match": "#ff9800",        // Rouge
+    "Tournoi": "#9c27b0",      // Jaune
+    "Réunion": "#f21832",      // Bleu
+    "Aucune": "#b0bec5",       // Gris
+  }
+
   return (
     <Box
       sx={{
@@ -138,11 +146,11 @@ function Calendrier() {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               >
-                <MenuItem value="Aucune">Aucune</MenuItem>
-                <MenuItem value="Entrainement">Entrainement</MenuItem>
-                <MenuItem value="Match">Match</MenuItem>
-                <MenuItem value="Tournoi">Tournoi</MenuItem>
-                <MenuItem value="Réunion">Réunion</MenuItem>
+                <MenuItem value="Aucune" sx={{ borderLeft: `4px solid ${'#b0bec5'}` }}>Aucune</MenuItem>
+                <MenuItem value="Entrainement" sx={{ borderLeft: `4px solid #4caf50` }}>Entrainement</MenuItem>
+                <MenuItem value="Match" sx={{ borderLeft: `4px solid #ff9800` }}>Match</MenuItem>
+                <MenuItem value="Tournoi" sx={{ borderLeft: `4px solid #9c27b0` }}>Tournoi</MenuItem>
+                <MenuItem value="Réunion" sx={{ borderLeft: `4px solid #f21832` }}>Réunion</MenuItem>
               </Select>
             </FormControl>
             <TextField
@@ -159,23 +167,27 @@ function Calendrier() {
               value={timeF}
               onChange={(e) => setTimeF(e.target.value)}
             />
-            <Button sx={{ mt: 1 }} type="submit">
-              Ajouter
-            </Button>
+            <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+              <Button sx={{ mt: 1, px: 5}} type="submit">
+                Ajouter
+              </Button>
+            </Box>
           </Box>
         </form>
 
         <Divider orientation={"vertical"} flexItem sx={{ display: { xs: 'none', md: 'block' } }} />
-
+        <Box>
+        <Typography sx={{ fontSize: { xs: '1.2rem', sm: '1.5rem', md: '1.5rem' }, mb: 2}}>
+          Nos événements
+        </Typography>
         <Box
           sx={{
-            mt: 2,
-            p: 4,
-            display: 'flex',
-            flexDirection: 'column',
-            gap: 2,
+            display: 'grid',
+            gridTemplateColumns: { xs: '1fr', sm: '1fr 1fr', md: '1fr 1fr' },
             maxHeight: '400px',
-            width: {xs: 250, sm: 500, md: 400},
+            gap: { xs: 2, sm: 2, md: 2 },
+            mt: 2,
+            p: 2,
             overflowY: 'auto',
             scrollbarWidth: 'thin',
             '&::-webkit-scrollbar': {
@@ -190,17 +202,14 @@ function Calendrier() {
             },
           }}
         >
-          <Typography variant="h6" sx={{ mb: 0.5, gridColumn: 'span 2', textAlign: 'center',fontSize: { xs: '1.5rem', sm: '1.5rem', md: '1.5rem' } }}>
-            Événements
-          </Typography>
           {sortedEvents.length > 0 ? (
             sortedEvents.map((event, index) => (
-              <Card key={index} sx={{ bgcolor: '#b0bec5', color: 'white' }}>
+              <Card key={index} sx={{ bgcolor: '#fff', color: 'text.primary', borderLeft: `4px solid ${eventColors[event.name] || '#b0bec5'}`, borderRadius: 2, boxShadow: 4  }}>
                 <CardContent>
                   <Typography sx={{ color: 'text.secondary', fontSize: 12 }} variant="body2">
                     {formatDate(event.date || new Date().toISOString().split('T')[0])}
                   </Typography>
-                  <Typography gutterBottom variant="h6">
+                  <Typography gutterBottom variant="h6" sx={{fontWeight: 'bold', color: eventColors[event.name] || 'white'}}>
                     {event.name}
                   </Typography>
                   <Typography variant="body2">
@@ -208,8 +217,8 @@ function Calendrier() {
                   </Typography>
                 </CardContent>
                 <CardActions sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                  <Button sx={{ bgcolor: '#b0bec5' }} onClick={() => handleDelete(event._id)}>
-                    <DeleteIcon sx={{ '&:hover': { color: '#ff1744' } }} />
+                  <Button sx={{ bgcolor: '#fff' }} onClick={() => handleDelete(event._id)}>
+                    <DeleteIcon sx={{ '&:hover': { color: '#ff1744' }, color: 'black' }} fontSize='small'/>
                   </Button>
                 </CardActions>
               </Card>
@@ -236,6 +245,7 @@ function Calendrier() {
           {snackbar.message}
         </Alert>
       </Snackbar>
+      </Box>
     </Box>
   );
 }

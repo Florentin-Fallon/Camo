@@ -90,7 +90,7 @@ function Contact() {
             />
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', my: 2 }}>
-            <Button variant="contained" sx={{ bgcolor: '#728996', '&:hover': { bgcolor: '#52626b' }, width: '200px' }} type="submit">
+            <Button variant="contained" sx={{ bgcolor: '#728996','&:hover': {bgcolor: '#5f6d7d'}, width: '200px' }} type="submit">
               Soumettre
             </Button>
           </Box>

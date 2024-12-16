@@ -1,7 +1,7 @@
 import { Box, Typography, Divider, IconButton } from '@mui/material';
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faDiscord, faTiktok, faInstagram } from '@fortawesome/free-brands-svg-icons';
+import { faDiscord, faInstagram } from '@fortawesome/free-brands-svg-icons';
 
 function Footer() {
   return (
@@ -44,13 +44,6 @@ function Footer() {
           sx={{ color: '#5865F2', fontSize: { xs: 24, sm: 28 } }}
         >
           <FontAwesomeIcon icon={faDiscord} />
-        </IconButton>
-        <IconButton
-          href="https://www.tiktok.com/@votre_compte/"
-          target="_blank"
-          sx={{ color: '#000000', fontSize: { xs: 24, sm: 28 } }}
-        >
-          <FontAwesomeIcon icon={faTiktok} />
         </IconButton>
       </Box>
     </Box>
