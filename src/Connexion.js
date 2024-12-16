@@ -25,9 +25,8 @@ function Connexion() {
       const response = await axios.post('https://neversoft-back.onrender.com/connexion', { email, password });
       if (response.status === 200) {
         localStorage.setItem('token', response.data.token);
-        
         setSnackbar({ open: true, message: 'Connexion réussie', severity: 'success' });
-        setTimeout(() => navigate('/'), 1500);
+        navigate('/')
       } else {
         throw new Error('Erreur de connexion');
       }

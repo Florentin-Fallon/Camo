@@ -88,7 +88,7 @@ function GamesCard() {
       >
         <Box sx={style}>
         <FontAwesomeIcon icon={faSkull} size='2x' style={{cursor: 'pointer', }} onMouseEnter={(e) => e.target.style.color = 'red'} onClick={handleClose}/>
-          <Typography id="game-modal-title" variant="h5" component="h2" sx={{fontWeight: 700, textTransform: 'capitalize',fontFamily: 'Protest Revolution', letterSpacing: 2,fontSize: { xs: '1rem', sm: '1.5rem', md: '1.5rem' }}}>
+          <Typography id="game-modal-title" variant="h5" component="h2" sx={{fontWeight: 700, textTransform: 'capitalize',fontFamily: 'Protest Revolution', letterSpacing: 2,fontSize: { xs: '1rem', sm: '1.5rem', md: '1.5rem' }, pt: 2}}>
             {selectedGame?.name}
           </Typography>
           <Typography id="game-modal-description" sx={{ my: 3, textAlign: 'center', letterSpacing: 1,fontSize: { xs: '0.8rem', sm: '1rem', md: '1rem' } }} variant='body1' color='text.secondary'>

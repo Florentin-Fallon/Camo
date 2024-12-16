@@ -3,8 +3,8 @@ import { Box, Button, Card, CardContent, CardMedia, Grid, Typography } from '@mu
 
 function ReseauxCard({ title, description, image, link, bgColor }) {
   return (
-    <Box sx={{ my: 4, }}>
-      <Grid container justifyContent="center" alignItems="center" spacing={2} sx={{ textAlign: 'center' }}>
+    <Box sx={{ mb: 4 }}>
+      <Grid container justifyContent="center" alignItems="center" sx={{ textAlign: 'center' }}>
         <Grid item xs={12} md={8}>
           <Card
             sx={{
@@ -32,7 +32,7 @@ function ReseauxCard({ title, description, image, link, bgColor }) {
                 color: '#fff',
               }}
             >
-              <Typography variant="h5" sx={{ mb: 2, fontWeight: 700, color: '#fff',textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)'}}>
+              <Typography variant="h5" sx={{ mt:2, mb: 2, fontWeight: 700, color: '#fff',textShadow: '0 2px 4px rgba(0, 0, 0, 0.5)'}}>
                 {title}
               </Typography>
               <Typography variant="body1" sx={{ mb: 3, color: 'rgba(255, 255, 255, 0.8)', lineHeight: 1.6}}>
