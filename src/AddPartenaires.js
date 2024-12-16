@@ -66,7 +66,7 @@ function AddPartenaires() {
         }}
     >
         <Box>
-            <Card sx={{  width: { xs: '95%', sm: 250 }, padding: { xs: 1, sm: 2 }, boxShadow: 3,  borderRadius: 5,}}>
+            <Card sx={{  width: { xs: 300, sm: 300, md: 300 }, padding: { xs: 2, sm: 3 }, boxShadow: 3,  borderRadius: 5,}}>
                 <CardContent>
                     <Typography variant="h5" sx={{ mb: 1, fontWeight: 700, letterSpacing: 1 }} align="center">
                         Partenariat

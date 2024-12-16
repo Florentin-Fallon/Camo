@@ -134,6 +134,7 @@ function Calendrier() {
               <Select
                 variant="outlined"
                 color="success"
+                label="Type"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               >
