@@ -162,6 +162,15 @@ function Header() {
               <Divider variant="middle" sx={{ marginY: 1 }} />
               <MenuItem
                 component={Link}
+                to="/souvenir"
+                onClick={handleCloseNavMenu}
+                sx={{ px: 4 }}
+              >
+                Souvenir
+              </MenuItem>
+              <Divider variant="middle" sx={{ marginY: 1 }} />
+              <MenuItem
+                component={Link}
                 to="/contact"
                 onClick={handleCloseNavMenu}
                 sx={{ px: 4 }}
@@ -210,6 +219,17 @@ function Header() {
               }}
             >
               Boutique
+            </Typography>
+            <Typography
+              component={Link}
+              to="/souvenir"
+              sx={{
+                color: "inherit",
+                textDecoration: "none",
+                "&:hover": { color: "#728996" },
+              }}
+            >
+              Souvenir
             </Typography>
             <Typography
               component={Link}

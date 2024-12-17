@@ -10,6 +10,7 @@ import Profil from "./Profil";
 import Boutique from "./Boutique";
 import AddPartenaires from "./AddPartenaires";
 import Evenement from "./Evenement";
+import Souvenir from "./Souvenir";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -30,10 +31,6 @@ function App() {
           element={token ? <Contact /> : <Navigate to="/connexion" replace />}
         />
         <Route
-          path="/contact"
-          element={token ? <Home /> : <Navigate to="/connexion" replace />}
-        />
-        <Route
           path="/profil"
           element={token ? <Profil /> : <Navigate to="/connexion" replace />}
         />
@@ -46,6 +43,10 @@ function App() {
           element={
             token ? <AddPartenaires /> : <Navigate to="/connexion" replace />
           }
+        />
+        <Route
+          path="/souvenir"
+          element={token ? <Souvenir /> : <Navigate to="/connexion" replace />}
         />
         <Route
           path="/evenement"
