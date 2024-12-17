@@ -1,8 +1,15 @@
-import { Box, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
 import React from "react";
+import { Box, ImageList, ImageListItem, ImageListItemBar } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 import itemData from "./Image.json";
 
 function StandardImageList() {
+  const navigate = useNavigate();
+
+  const handleImageClick = (id) => {
+    navigate(`/event/${id}`);
+  };
+
   return (
     <Box
       sx={{ display: "flex", justifyContent: "center", alignItems: "center" }}
@@ -15,7 +22,11 @@ function StandardImageList() {
         }}
       >
         {itemData.map((item) => (
-          <ImageListItem key={item.img}>
+          <ImageListItem
+            key={item.id}
+            onClick={() => handleImageClick(item.id)}
+            sx={{ cursor: "pointer" }}
+          >
             <img
               srcSet={`${item.img}?w=248&fit=crop&auto=format&dpr=2 2x`}
               src={`${item.img}?w=248&fit=crop&auto=format`}

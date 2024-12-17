@@ -11,6 +11,7 @@ import Boutique from "./Boutique";
 import AddPartenaires from "./AddPartenaires";
 import Evenement from "./Evenement";
 import Souvenir from "./Souvenir";
+import EventDetail from "./Components/Carousel/EventDetail";
 
 function App() {
   const token = localStorage.getItem("token");
@@ -51,6 +52,12 @@ function App() {
         <Route
           path="/evenement"
           element={token ? <Evenement /> : <Navigate to="/connexion" replace />}
+        />
+        <Route
+          path="/event/:id"
+          element={
+            token ? <EventDetail /> : <Navigate to="/connexion" replace />
+          }
         />
         <Route path="/signup" element={<Signup />} />
         <Route path="/connexion" element={<Connexion />} />

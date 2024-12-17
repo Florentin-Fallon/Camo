@@ -94,7 +94,7 @@ function TabsMembers() {
             title="Instagram"
             description="Suivez-nous pour découvrir nos aventures en photo."
             image="https://images.unsplash.com/photo-1611262588024-d12430b98920?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-            link="https://www.instagram.com/votre_compte_instagram/"
+            link="https://www.instagram.com/club_neversoft/"
             buttonText="Rejoignez-nous"
             bgColor="#1e1e2f"
           />
