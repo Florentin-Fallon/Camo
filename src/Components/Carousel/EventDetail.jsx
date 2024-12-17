@@ -73,8 +73,7 @@ function EventDetail() {
                   alt={`photo-${index}`}
                   loading="lazy"
                   style={{
-                    borderRadius: "8px",
-                    boxShadow: "0 4px 10px rgba(0, 0, 0, 0.2)",
+                    borderRadius: "10px",
                   }}
                 />
               </ImageListItem>
